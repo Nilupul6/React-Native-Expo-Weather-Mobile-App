@@ -11,9 +11,7 @@ Welcome to the **Weather Forecast App**! This React Native application provides 
 
 ## 🖼️ Screenshots
 
-![WhatsApp Image 2024-06-15 at 06 05 37](https://github.com/Nilupul6/React-Native-Expo-Weather-Mobile-App/assets/152468856/b70edfcf-a868-4333-8d7f-39ff63813fa3)
-
-![WhatsApp Image 2024-06-15 at 06 05 37 (1)](https://github.com/Nilupul6/React-Native-Expo-Weather-Mobile-App/assets/152468856/7071f2f6-9112-4b55-992e-0de1e193a03d)
+![WhatsApp Image 2024-06-15 at 06 05 37](https://github.com/Nilupul6/React-Native-Expo-Weather-Mobile-App/assets/152468856/b70edfcf-a868-4333-8d7f-39ff63813fa3)![WhatsApp Image 2024-06-15 at 06 05 37 (1)](https://github.com/Nilupul6/React-Native-Expo-Weather-Mobile-App/assets/152468856/7071f2f6-9112-4b55-992e-0de1e193a03d)
 
 
 ## 🛠️ Technologies Used
