@@ -193,28 +193,29 @@ const HomeScreen = () => {
                       contentContainerStyle={{ paddingHorizontal: 15 }}
                       showsHorizontalScrollIndicator={false}
                     >
-                      {
-                        weather?.forecast?.forecastday?.map((item, index) => {
-                          let date = new Date(item.date);
-                          let option = { weekday: 'long' };
-                          let dayName = date.toLocaleDateString('en-US', option);
-                          dayName = dayName.split(',')[0]
-                          return (
-                            <View
-                              key={index}
-                              className="flex justify-center items-center w-24 rounded-3xl py-3 space-y-1 mr-4"
-                              style={{ backgroundColor: theme.bgwhite(0.15) }}
-                            >
-                              <Image
-                                source={{ uri: 'http:' + item?.day?.condition?.icon }}
-                                className="h-11 w-11"
-                              />
-                              <Text className="text-white">{dayName}</Text>
-                              <Text className="text-white text-xl font-semibold">{item?.day?.avgtemp_c}&#176;</Text>
-                            </View>
-                          )
-                        })
-                      }
+                      {weather?.forecast?.forecastday?.map((item, index) => {
+                        let date = new Date(item.date);
+                        let option = { weekday: 'long' };
+                        let dayName = date.toLocaleDateString('en-US', option);
+                        dayName = dayName.split(',')[0];
+                        
+                        return (
+                          <TouchableOpacity
+                            key={index}
+                            className="flex justify-center items-center w-24 rounded-3xl py-3 space-y-1 mr-4"
+                            style={{ backgroundColor: theme.bgwhite(0.15) }}
+                            activeOpacity={0.7}  // You can adjust the opacity value as needed
+                            onPress={() => console.log(`${dayName} pressed`)} // Replace with your desired action
+                          >
+                            <Image 
+                              source={{ uri: 'http:' + item?.day?.condition?.icon }}
+                              className="h-11 w-11"
+                            />
+                            <Text className="text-white">{dayName}</Text>
+                            <Text className="text-white text-xl font-semibold">{item?.day?.avgtemp_c}&#176;</Text>
+                          </TouchableOpacity>
+                        );
+                      })}
                     </ScrollView>
                   </View>
                 </ScrollView>
