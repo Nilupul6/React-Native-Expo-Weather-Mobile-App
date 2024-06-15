@@ -31,9 +31,3 @@ Welcome to the **Weather Forecast App**! This React Native application provides 
 - **npm** or **yarn**: Package manager for installing dependencies.
 - **React Native CLI**: For running the application on your device/emulator.
 
-### Steps
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/weather-forecast-app.git
-   cd weather-forecast-app
