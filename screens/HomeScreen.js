@@ -32,7 +32,7 @@ const HomeScreen = () => {
   };
 
   const handleSearch = value => {
-    if (value.length > 2) {
+    if (value.length >= 2) {
       fetchWeatherLocation({ cityName: value }).then(data => {
         setLocation(data);
       });
@@ -70,9 +70,7 @@ const HomeScreen = () => {
     });
   };
 
-  const handleTextDebounce = useCallback(debounce(handleSearch, 500), []);
-
-  const { current, location } = weather;
+  const handleTextDebounce = useCallback(debounce(handleSearch, 250), []);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -99,7 +97,7 @@ const HomeScreen = () => {
                       showSearch ? (
                         <TextInput
                           onChangeText={handleTextDebounce}
-                          placeholder="Search City"
+                          placeholder="Search the City"
                           placeholderTextColor={'lightgray'}
                           className="pl-6 h-10 pb-1 flex-1 text-base text-white"
                         />
@@ -142,36 +140,36 @@ const HomeScreen = () => {
                 <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={{ flexGrow: 1 }}>
                   <View className="mx-4 flex justify-around flex-1 mb-2">
                     <Text className="text-white text-center text-2xl font-bold">
-                      {location?.name}
+                      {weather?.location?.name}
                       <Text className="text-lg font-semibold text-gray-400">
-                        {"    " + location?.country}
+                        {"    " + weather?.location?.country}
                       </Text>
                     </Text>
                     <View className="flex-row justify-center">
                       <Image
-                        source={weatherImages[current?.condition?.text]}
+                        source={weatherImages[weather?.current?.condition?.text]}
                         className="w-52 h-52"
                       />
                     </View>
                     <View className="space-y-2 mb-7">
                       <Text className="text-center font-bold text-white text-6xl ml-5">
-                        {current?.temp_c}&#176;
+                        {weather?.current?.temp_c}&#176;
                       </Text>
                       <Text className="text-center text-white text-xl tracking-widest">
-                        {current?.condition?.text}
+                        {weather?.current?.condition?.text}
                       </Text>
                     </View>
                     <View className="flex-row justify-between mx-4 mb-3">
                       <View className="flex-row space-x-2 items-center">
                         <Image source={require('../assets/icons/wind.png')} className="w-6 h-6" />
                         <Text className="text-white font-semibold text-base">
-                          {current?.wind_kph}km
+                          {weather?.current?.wind_kph}km
                         </Text>
                       </View>
                       <View className="flex-row space-x-2 items-center">
                         <Image source={require('../assets/icons/drop.png')} className="w-6 h-6" />
                         <Text className="text-white font-semibold text-base">
-                          {current?.humidity}%
+                          {weather?.current?.humidity}%
                         </Text>
                       </View>
                       <View className="flex-row space-x-2 items-center">
